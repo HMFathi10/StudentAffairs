@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="students.affairs.ProjectRunController">
+   <effect>
+      <DropShadow />
+   </effect>
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../re.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="-1.0" prefHeight="800.0" prefWidth="318.0" styleClass="sidebar" stylesheets="@css.css">
+         <children>
+            <Label fx:id="CloseButton" layoutX="14.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ExitAction" prefHeight="15.0" prefWidth="15.0" styleClass="close-btn" stylesheets="@css.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="40.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ExitAction" prefHeight="15.0" prefWidth="15.0" styleClass="max-btn" stylesheets="@css.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="68.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ExitAction" prefHeight="15.0" prefWidth="15.0" styleClass="min-btn" stylesheets="@css.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="20.0" layoutY="65.0" text="Student" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" layoutX="55.0" layoutY="96.0" prefHeight="49.0" prefWidth="224.0" styleClass="create-addstudent-btn" stylesheets="@css.css">
+               <children>
+                  <MaterialDesignIconView id=".sidebar-btn" fill="WHITE" glyphName="ACCOUNT" nodeOrientation="LEFT_TO_RIGHT" size="30.0" wrappingWidth="30.0" />
+                  <Label id=".sidebar-btn" prefHeight="23.0" prefWidth="111.0" text="Add Student" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="AddStudentButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#AddStudentAction" prefHeight="48.0" prefWidth="53.0" style="-fx-background-color: #518CFB; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <MaterialDesignIconView id=".sidebar-btn" fill="WHITE" glyphName="PLUS" nodeOrientation="LEFT_TO_RIGHT" size="30.0" wrappingWidth="27.0" />
+                     </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <JFXButton fx:id="ShowStudentInformationButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="15.0" layoutX="9.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ViewStudentDataAction" prefHeight="49.0" prefWidth="300.0" ripplerFill="#727070" styleClass="sidebar-btn" text="Student Information" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <graphic>
+                  <MaterialDesignIconView fill="#9e9999" glyphName="SCHOOL" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="41.0" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="AvailableSubjectsButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="15.0" layoutX="9.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#AvailableSubjectsAction" prefHeight="49.0" prefWidth="300.0" ripplerFill="#727070" styleClass="sidebar-btn" text="Available Subjects" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <graphic>
+                  <MaterialDesignIconView fill="#9e9999" glyphName="BOOK" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="41.0" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="20.0" layoutY="287.0" text="Files" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" layoutX="55.0" layoutY="318.0" prefHeight="49.0" prefWidth="224.0" styleClass="create-addstudent-btn" stylesheets="@css.css">
+               <children>
+                  <MaterialDesignIconView id=".sidebar-btn" fill="WHITE" glyphName="FILE" nodeOrientation="LEFT_TO_RIGHT" size="30.0" wrappingWidth="30.0" />
+                  <Label id=".sidebar-btn" alignment="CENTER" prefHeight="23.0" prefWidth="111.0" text="Add File" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="AddNewFileButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#AddNewFileAction" prefHeight="48.0" prefWidth="53.0" style="-fx-background-color: #518CFB; -fx-background-radius: 10px;" text=" ">
+                     <graphic>
+                        <MaterialDesignIconView id=".sidebar-btn" fill="WHITE" glyphName="PLUS" nodeOrientation="LEFT_TO_RIGHT" size="30.0" wrappingWidth="27.0" />
+                     </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <JFXButton fx:id="CompareTwoFilesButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="15.0" layoutX="9.0" layoutY="377.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#CompareTwoFilesAction" prefHeight="49.0" prefWidth="300.0" ripplerFill="#727070" styleClass="sidebar-btn" text="Compare Two Files" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <graphic>
+                  <MaterialDesignIconView fill="#9e9999" glyphName="COMPARE" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="41.0" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="ScheduleInformationButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="15.0" layoutX="9.0" layoutY="474.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ScheduleInformationAction" prefHeight="49.0" prefWidth="300.0" ripplerFill="#727070" styleClass="sidebar-btn" text="Schedule Information" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <graphic>
+                  <MaterialDesignIconView fill="#9e9999" glyphName="WRAP" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="41.0" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="21.0" layoutY="442.0" text="Student Schedule" textFill="#727070">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <ScrollPane fx:id="AddFileScrollPane" layoutX="321.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.7" prefHeight="800.0" prefWidth="879.0" style="-fx-background-color: #1E80FF;">
+         <content>
+            <VBox prefHeight="779.0" prefWidth="880.0" style="-fx-background-color: #1E80FF;">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="860.0">
+                     <children>
+                        <TableView fx:id="AllContentTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#AllContentTableViewAction" prefHeight="457.0" prefWidth="291.0">
+                          <columns>
+                            <TableColumn fx:id="AllContentColumn" prefWidth="290.0" text="Content" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </TableView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <JFXButton buttonType="RAISED" onAction="#SaveNewSheetAction" prefHeight="48.0" prefWidth="102.0" ripplerFill="WHITE" style="-fx-background-color: #000000;" text="Save" textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton fx:id="AddFieldButton" buttonType="RAISED" onAction="#AddFieldButtonAction" prefHeight="46.0" prefWidth="115.0" ripplerFill="BLACK" style="-fx-background-color: #FFEB3B;" text="&gt;&gt;&gt;&gt;&gt;" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="100.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="RemoveFieldButton" buttonType="RAISED" onAction="#RemoveFieldButtonAction" prefHeight="46.0" prefWidth="115.0" ripplerFill="BLACK" style="-fx-background-color: #FFEB3B;" text="&lt;&lt;&lt;&lt;&lt;" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="40.0" right="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <TableView fx:id="CheckedContentTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#CheckedContentTableViewAction" prefHeight="457.0" prefWidth="291.0">
+                           <columns>
+                              <TableColumn fx:id="CheckedContentColumn" prefWidth="290.0" text="Content" />
+                           </columns>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <BorderPane fx:id="ListBorderPane" layoutX="316.0" layoutY="-1.0" opacity="0.7" prefHeight="800.0" prefWidth="888.0" style="-fx-background-color: #1E80FF;">
+         <top>
+            <Label text="Schedule" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+               <BorderPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Californian FB Bold" size="43.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+         </top>
+         <center>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1E80FF;" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox prefHeight="729.0" prefWidth="885.0" style="-fx-background-color: #1E80FF;">
+                     <children>
+                        <Text fx:id="Linktxt" fill="WHITE" onMouseClicked="#LinkClickAction" onMouseEntered="#LinkMouse" onMouseExited="#LinkMouseOut" strokeType="OUTSIDE" strokeWidth="0.0" text="//Link">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Californian FB Bold" size="27.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Text>
+                        <ImageView fitHeight="6000.0" fitWidth="2000.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../55.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="StudentSubjectsBorderPane" layoutX="318.0" layoutY="1.0" opacity="0.7" prefHeight="800.0" prefWidth="888.0" style="-fx-background-color: #1E80FF;">
+         <top>
+            <Label text="Add Subjects" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+               <BorderPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Californian FB Bold" size="43.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+         </top>
+         <center>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1E80FF;" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox prefHeight="729.0" prefWidth="885.0" style="-fx-background-color: #1E80FF;">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="66.0" text="SSN:  " textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="AddSubjectStudentNameTextField" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#AddSubjectStudentNameAction" prefHeight="39.0" prefWidth="196.0" style="-fx-text-fill: #ffffff;" unFocusColor="BLACK">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label fx:id="AAndDLable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Academic year: &#10;Departrment: &#10;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Bold" size="21.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="AvSubjectsGPALable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="GPA : " textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="30.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Californian FB Bold" size="27.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Label>
+                              <Label fx:id="GPALabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" textFill="WHITE">
+                                 <font>
+                                    <Font name="Californian FB Bold" size="27.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="33.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Label>
+                              <Label fx:id="TotalHoursLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Total hours:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Californian FB Bold" size="27.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="SubjectsVBox" prefHeight="444.0" prefWidth="861.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="30.0" top="20.0" />
+                           </padding>
+                           <children>
+                              <TableView fx:id="AddSubjectTableView" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#DoubleClickMouseAddSubjectTableView" prefHeight="348.0" prefWidth="849.0">
+                                <columns>
+                                  <TableColumn fx:id="SubjectColumn" prefWidth="321.0" text="Subject" />
+                                  <TableColumn fx:id="CodeColumn" minWidth="4.0" prefWidth="116.0" text="Code" />
+                                    <TableColumn fx:id="PreColumn" prefWidth="246.0" text="Prerequisite" />
+                                    <TableColumn fx:id="ArrColumn" prefWidth="82.0" text="Level" />
+                                    <TableColumn fx:id="HoursColumn" prefWidth="79.0" text="Hours" />
+                                </columns>
+                                 <padding>
+                                    <Insets bottom="20.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </TableView>
+                              <TableView fx:id="AVSubjectTableView" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#DoubleClickMouseAVSubjectTableView" prefHeight="348.0" prefWidth="849.0">
+                                 <columns>
+                                    <TableColumn fx:id="SubjectColumn1" prefWidth="321.0" text="Subject" />
+                                    <TableColumn fx:id="CodeColumn1" minWidth="4.0" prefWidth="116.0" text="Code" />
+                                    <TableColumn fx:id="PreColumn1" prefWidth="246.0" text="Prerequisite" />
+                                    <TableColumn fx:id="ArrColumn1" prefWidth="82.0" text="Level" />
+                                    <TableColumn fx:id="HoursColumn1" prefWidth="79.0" text="Hours" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton buttonType="RAISED" onAction="#SubmitButtonAction" prefHeight="120.0" prefWidth="120.0" ripplerFill="BLACK" style="-fx-background-color: #FFC107;" text="Submit" textFill="WHITE">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" left="700.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+      <ScrollPane fx:id="StudentDataScrollPane" layoutX="320.0" layoutY="-2.0" opacity="0.7" prefHeight="800.0" prefWidth="879.0" style="-fx-background-color: #1E80FF;">
+         <content>
+            <VBox prefHeight="694.0" prefWidth="878.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <MaterialDesignIconView glyphName="SEND" size="20.0">
+                           <HBox.margin>
+                              <Insets left="10.0" top="15.0" />
+                           </HBox.margin>
+                        </MaterialDesignIconView>
+                        <JFXTextField fx:id="SearchTF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#EnterKeyPressed" prefHeight="40.0" prefWidth="385.0" promptText="Enter student SSN">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </JFXTextField>
+                        <JFXButton fx:id="SaveChangesButton" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SaveChangesButtonAction" ripplerFill="#280303" text="Save Changes">
+                           <HBox.margin>
+                              <Insets left="300.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox id="Sec" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="879.0">
+                     <children>
+                        <Pane id="Sec" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="878.0" stylesheets="@css.css">
+                           <children>
+                              <JFXButton fx:id="EditProfileButton" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="10.0" layoutX="781.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#EditProfileAction" prefHeight="31.0" prefWidth="76.0" ripplerFill="WHITE" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="20" wrappingWidth="12.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Leelawadee UI Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <ImageView id="Im" fx:id="ProfileImageView" fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../person.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                              <JFXTextField fx:id="ProfileNameTF" focusColor="#405aa800" layoutX="415.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="406.0" style="-fx-text-fill: #ffffff;" text="Ahmed Mohamed Ahmed" unFocusColor="#4d4d4d00">
+                                 <font>
+                                    <Font name="Leelawadee UI Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </JFXTextField>
+                              <Text fill="WHITE" layoutX="425.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Academic year: ">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <JFXTextField fx:id="ProfileAYTF" focusColor="#405aa800" layoutX="536.0" layoutY="105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="118.0" style="-fx-text-fill: #ffffff;" text="3" unFocusColor="#4d4d4d00">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="ProfileSectionTF" focusColor="#405aa800" layoutX="492.0" layoutY="136.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="49.0" style="-fx-text-fill: #ffffff;" text="1CS" unFocusColor="#4d4d4d00">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Text fill="WHITE" layoutX="425.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Section: " wrappingWidth="61.734375">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="10.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" />
+                     </padding>
+                  </HBox>
+                  <VBox prefHeight="371.0" prefWidth="871.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="870.0">
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="879.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal data" wrappingWidth="127.99999386072159">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Separator prefWidth="852.0" style="-fx-background-color: #795548;">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin></Separator>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fill="#6b1515" strokeType="OUTSIDE" strokeWidth="0.0" text="Social Security Number: ">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField fx:id="SSNTF" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="253.0" text="233565874" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="3.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fill="#6b1515" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: ">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField fx:id="AddressTF" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="335.0" text="Address: Egypt-Asyut-Asyut" unFocusColor="#4d4d4d00">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fill="#6b1515" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone: ">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField fx:id="TelTF" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="335.0" text=" 333554896" unFocusColor="#4d4d4d00">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fill="#6b1515" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth: ">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField fx:id="DOFTF" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="335.0" text="1/1/99" unFocusColor="#4d4d4d00">
+                                             <HBox.margin>
+                                                <Insets top="2.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Subjects" wrappingWidth="149.9999938607216">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Separator prefWidth="852.0" style="-fx-background-color: #795548;">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin></Separator>
+                  <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="758.0">
+                     <content>
+                        <VBox fx:id="CoursesVBox1" prefHeight="200.0" prefWidth="736.0">
+                           <children>
+                              <VBox fx:id="CoursesVBox" prefHeight="200.0" prefWidth="736.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <JFXButton fx:id="SaveDegreeButton" buttonType="RAISED" onAction="#SaveDegreeAction" ripplerFill="#a6cd30" style="-fx-background-color: #000000;" text="Save" textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="550.0" top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Calibri" size="21.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow>
+                                       <input>
+                                          <Reflection />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Text fx:id="TotalHoursTF" fill="#461b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Hours: 18" wrappingWidth="210.8203125">
+                     <VBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="GPATF" fill="#461b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA: 2.86" wrappingWidth="210.8203125">
+                     <VBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="ComTFilesScrollPane" layoutX="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.7" prefHeight="800.0" prefWidth="879.0" style="-fx-background-color: #1E80FF;">
+         <content>
+            <VBox prefHeight="669.0" prefWidth="880.0" style="-fx-background-color: #1E80FF;">
+               <children>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="772.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="In Students">
+                           <font>
+                              <Font name="Leelawadee UI" size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="100.0" top="100.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TableView fx:id="InStudentsTableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="472.0">
+                          <columns>
+                            <TableColumn fx:id="InStudentsNameColumn" prefWidth="297.0" text="Name" />
+                            <TableColumn fx:id="InStudentsSSNColumn" prefWidth="173.0" text="SSN" />
+                          </columns>
+                        </TableView>
+                        <MaterialDesignIconView fill="WHITE" glyphName="PLUS" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#AddFirstFileAction" size="40" wrappingWidth="41.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </MaterialDesignIconView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="774.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Students">
+                           <font>
+                              <Font name="Leelawadee UI" size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="70.0" top="100.0" />
+                           </HBox.margin>
+                        </Text>
+                        <TableView fx:id="OutStudentsTableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="472.0">
+                           <columns>
+                              <TableColumn fx:id="OutStudentsNameColumn" prefWidth="297.0" text="Name" />
+                              <TableColumn fx:id="OutStudentsSSNColumn" prefWidth="173.0" text="SSN" />
+                           </columns>
+                        </TableView>
+                        <MaterialDesignIconView fill="WHITE" glyphName="PLUS" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#AddSecondFileAction" size="40" wrappingWidth="41.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </MaterialDesignIconView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="AddStudent" layoutX="321.0" layoutY="-1.0" opacity="0.7" prefHeight="800.0" prefWidth="879.0" style="-fx-background-color: #1E80FF;">
+         <content>
+            <VBox prefHeight="778.0" prefWidth="880.0" style="-fx-background-color: #1E80FF;">
+               <children>
+                  <HBox prefHeight="77.0" prefWidth="882.0" style="-fx-background-color: #1E80FF;">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" text="Add Student" wrappingWidth="129.6455078125">
+                           <font>
+                              <Font name="Leelawadee UI Bold" size="21.0" />
+                           </font>
+                           <effect>
+                              <DropShadow>
+                                 <input>
+                                    <Reflection />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="10.0" top="20.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="83.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXTextField fx:id="AddStudentNameTextField" focusColor="#6c748d" prefHeight="39.0" prefWidth="388.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN" wrappingWidth="83.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXTextField fx:id="AddStudentSSNTextField" focusColor="#6c748d" prefHeight="39.0" prefWidth="255.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="87.0" prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="83.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXTextField fx:id="AddStudentAddressTextField" focusColor="#6c748d" prefHeight="39.0" prefWidth="388.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth" wrappingWidth="98.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXDatePicker fx:id="AddStudentDOFTextField" defaultColor="BLACK" promptText="MM/DD/YYYY" style="-fx-text-fill: #ffffff;">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </JFXDatePicker>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone" wrappingWidth="83.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXTextField fx:id="AddStudentTelTextField" focusColor="#6c748d" prefHeight="39.0" prefWidth="229.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Academic year" wrappingWidth="124.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXComboBox fx:id="AddStudentAcaYearComboBox" focusColor="WHITE" onMouseClicked="#WhatAcaYear" prefHeight="31.0" prefWidth="146.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" wrappingWidth="124.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <JFXComboBox fx:id="AddStudentDepartmentComboBox" focusColor="WHITE" onMouseClicked="#WhatDepart" prefHeight="31.0" prefWidth="146.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="68.0" prefWidth="876.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" wrappingWidth="124.361328125">
+                           <font>
+                              <Font name="Sylfaen" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ImageView fx:id="StudentImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton buttonType="RAISED" onAction="#AddImageButtonAction" ripplerFill="WHITE" text="Add Image" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="30" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="20.0" top="40.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="AddStudentDoneButton" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#AddStudentDoneButtonAction" prefHeight="53.0" prefWidth="127.0" ripplerFill="#212121" style="-fx-background-color: #BDBDBD;" text="Done" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="200.0" right="20.0" top="60.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Leelawadee UI Bold" size="23.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="rootPane" fx:id="MainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="853.0" prefWidth="1280.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="students.affairs.FXMLDocumentController">
+   <children>
+      <Label alignment="CENTER" layoutX="484.0" layoutY="75.0" prefHeight="72.0" prefWidth="312.0" style="-fx-border-color: #ffffff; -fx-border-radius: 50px;" text="Student Affairs" textFill="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="40.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="574.0" layoutY="228.0" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="35.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <JFXTextField fx:id="UserNameTF" focusColor="#21356f" labelFloat="true" layoutX="484.0" layoutY="304.0" onKeyPressed="#EnterAction" opacity="0.63" prefHeight="38.0" prefWidth="312.0" promptText="USERNAME" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Leelawadee UI Bold" size="17.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </padding>
+      </JFXTextField>
+      <JFXPasswordField fx:id="PasswordTF" focusColor="#415aa6" labelFloat="true" layoutX="484.0" layoutY="397.0" onKeyPressed="#EnterAction" opacity="0.63" prefHeight="31.0" prefWidth="312.0" promptText="PASSWORD" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+         <padding>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </padding>
+      </JFXPasswordField>
+      <JFXCheckBox fx:id="StaySignedInCB" checkedColor="#7869c3" layoutX="494.0" layoutY="479.0" text="Stay signed in" textFill="WHITE" unCheckedColor="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXCheckBox>
+      <JFXButton fx:id="SignInButton" buttonType="RAISED" layoutX="591.0" layoutY="539.0" onAction="#SignINAction" opacity="0.68" prefHeight="51.0" prefWidth="110.0" style="-fx-background-color: #9e9e9e; -fx-background-radius: 15px;" text="SIGN IN" textFill="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="21.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="463.0" layoutY="614.0" opacity="0.36" prefHeight="3.0" prefWidth="355.0" style="-fx-background-color: #000000;" />
+      <Text fx:id="Forgettxt" fill="WHITE" layoutX="480.0" layoutY="645.0" onMouseEntered="#ForgetPasswordEnterAction" onMouseExited="#ForgetPasswordExitAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Can't sign in ?" textAlignment="CENTER">
+         <font>
+            <Font name="Leelawadee UI" size="22.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <Text fx:id="Createtxt" fill="WHITE" layoutX="480.0" layoutY="696.0" onMouseClicked="#CreateNewAccountAction" onMouseEntered="#CreateNewAccountEnterAction" onMouseExited="#CreateNewAccountExitAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account" textAlignment="CENTER">
+         <font>
+            <Font name="Leelawadee UI" size="22.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="451.0" layoutY="347.0" size="30.0" wrappingWidth="24.0" />
+      <FontAwesomeIconView fill="WHITE" glyphName="LOCK" layoutX="451.0" layoutY="432.0" size="30.0" text="" wrappingWidth="24.0" />
+      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="1250.0" layoutY="31.0" onMouseClicked="#CloseSignInAction" opacity="0.72" size="25.0" textAlignment="CENTER">
+         <effect>
+            <Reflection />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </FontAwesomeIconView>
+      <Text fill="WHITE" layoutX="51.0" layoutY="808.0" opacity="0.58" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrator version">
+         <font>
+            <Font name="Leelawadee UI Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="51.0" layoutY="713.0" opacity="0.58" strokeType="OUTSIDE" strokeWidth="0.0" text="powered by &#10;Faculty of Computer and Information Technology&#10;Assiut university">
+         <font>
+            <Font name="Leelawadee UI Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="51.0" layoutY="833.0" opacity="0.58" strokeType="OUTSIDE" strokeWidth="0.0" text="v1.0.2">
+         <font>
+            <Font name="Leelawadee UI Bold" size="17.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,57 @@
+.styled-text-area {
+    -fx-padding: 5px;
+}
+
+#rootPane{
+    -fx-background-image:url("i.jpg");
+}
+#Sec{
+    -fx-background-image:url("o.jpg");
+    -fx-background-radius: 50px;
+}
+#Im{
+    -fx-border-radius: 50px;    
+}
+#ScrollPane
+{
+    -fx-background-image: url("re.jpg");
+}
+.close-btn{
+    -fx-background-color: #FF6058;
+    -fx-background-radius: 100%;
+}
+.close-btn:hover{
+    -fx-background-color: red;
+    -fx-background-radius: 100%;
+}
+.min-btn{
+    -fx-background-color: #27CA41;
+    -fx-background-radius: 100%;
+}
+.min-btn:hover{
+    -fx-background-color: green;
+    -fx-background-radius: 100%;
+}
+.max-btn{
+    -fx-background-color: #FFBD2D;
+    -fx-background-radius: 100%;
+}
+.max-btn:hover{
+    -fx-background-color: yellow;
+    -fx-background-radius: 100%;
+}
+.sidebar{
+    -fx-background-color: FFFFFF;
+}
+.sidebar-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+}
+.sidebar-btn:hover{
+    -fx-background-color: #C5CAE9;
+    -fx-background-radius: 5px;
+}
+.create-addstudent-btn{
+    -fx-background-color: #397DFF;
+    -fx-background-radius: 10px;
+}
